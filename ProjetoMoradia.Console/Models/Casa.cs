@@ -24,7 +24,7 @@ namespace ProjetoMoradia.Models
         {
             var valor = 0.0;
             valor = (TamanhoEmMetros * 35) + (QuantidadeDeQuartos * 10) + (QuantidadeDeBanheiros * 5);
-            if (ComQuintal == true)
+            if (ComQuintal)
                 valor = valor * 1.1;
             return valor;
         }
