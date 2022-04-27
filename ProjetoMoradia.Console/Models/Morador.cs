@@ -8,8 +8,8 @@ namespace ProjetoMoradia.Models
 
         public Morador(string nome, string cpf, string dataNascimento)
         {
-            Nome = nome;
-            Cpf = cpf;
+            SetNome(nome);
+            SetCpf(cpf);
             SetDataNascimento(dataNascimento);
         }
 
@@ -25,7 +25,9 @@ namespace ProjetoMoradia.Models
 
         public void SetCpf(string cpf)
         {
-            Cpf = cpf;
+            if (cpf.Count() == 11)
+                Cpf = cpf;
+            else return;
         }
 
         public string GetCpf()
