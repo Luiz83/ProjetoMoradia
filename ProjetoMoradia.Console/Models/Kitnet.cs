@@ -7,6 +7,22 @@ namespace ProjetoMoradia.Models
         {
 
         }
+
+        public override void SetTamanhoEmMetros(double tamanhoEmMetros)
+        {
+            if (tamanhoEmMetros <= 50)
+            {
+                TamanhoEmMetros = tamanhoEmMetros;
+            }
+        }
+
+        public override void SetQuantidadeDeBanheiros(int quantidadeDeBanheiros)
+        {
+            if (quantidadeDeBanheiros <= 2)
+            {
+                QuantidadeDeBanheiros = quantidadeDeBanheiros;
+            }
+        }
         public override double CalcularValor()
         {
             var valor = 0.0;

@@ -20,6 +20,22 @@ namespace ProjetoMoradia.Models
             return ComQuintal;
         }
 
+        public override void SetTamanhoEmMetros(double tamanhoEmMetros)
+        {
+            if (tamanhoEmMetros <= 100)
+            {
+                TamanhoEmMetros = tamanhoEmMetros;
+            }
+        }
+
+        public override void SetQuantidadeDeBanheiros(int quantidadeDeBanheiros)
+        {
+            if (quantidadeDeBanheiros <= 5)
+            {
+                QuantidadeDeBanheiros = quantidadeDeBanheiros;
+            }
+        }
+
         public override double CalcularValor()
         {
             var valor = 0.0;

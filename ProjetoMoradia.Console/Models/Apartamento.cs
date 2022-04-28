@@ -9,13 +9,16 @@ namespace ProjetoMoradia.Models
                            int andar, double valorCondominio) : base(endereco, cep, tamanhoEmMetros, quantidadeDeBanheiros,
                            quantidadeDeQuartos)
         {
-            Andar = andar;
+            SetAndar(andar);
             ValorCondominio = valorCondominio;
         }
 
         public void SetAndar(int andar)
         {
-            Andar = andar;
+            if (andar <= 10)
+            {
+                Andar = andar;
+            }
         }
 
         public int GetAndar()
@@ -26,6 +29,22 @@ namespace ProjetoMoradia.Models
         public void SetValorCondominio(double valorCondominio)
         {
             ValorCondominio = valorCondominio;
+        }
+
+        public override void SetTamanhoEmMetros(double tamanhoEmMetros)
+        {
+            if (tamanhoEmMetros <= 60)
+            {
+                TamanhoEmMetros = tamanhoEmMetros;
+            }
+        }
+
+        public override void SetQuantidadeDeBanheiros(int quantidadeDeBanheiros)
+        {
+            if (quantidadeDeBanheiros <= 3)
+            {
+                QuantidadeDeBanheiros = quantidadeDeBanheiros;
+            }
         }
 
         public double GetValorCondominio()

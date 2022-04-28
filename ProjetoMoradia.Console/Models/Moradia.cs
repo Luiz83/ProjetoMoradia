@@ -11,11 +11,11 @@ namespace ProjetoMoradia.Models
 
         public Moradia(string endereco, int cep, double tamanhoEmMetros, int quantidadeDeBanheiros, int quantidadeDeQuartos)
         {
-            Endereco = endereco;
-            Cep = cep;
-            TamanhoEmMetros = tamanhoEmMetros;
-            QuantidadeDeBanheiros = quantidadeDeBanheiros;
-            QuantidadeDeQuartos = quantidadeDeQuartos;
+            SetEndereco(endereco);
+            SetCep(cep);
+            SetTamanhoEmMetros(tamanhoEmMetros);
+            SetQuantidadeDeBanheiros(quantidadeDeBanheiros);
+            SetQuantidadeDeQuartos(quantidadeDeQuartos);
             Moradores = new List<Morador>();
         }
 
@@ -31,7 +31,15 @@ namespace ProjetoMoradia.Models
 
         public void SetCep(int cep)
         {
-            Cep = cep;
+            var cepString = cep.ToString();
+            if (cepString.Length != 8)
+            {
+                Cep = 0;
+            }
+            else
+            {
+                Cep = cep;
+            }
         }
 
         public int GetCep()
@@ -39,7 +47,7 @@ namespace ProjetoMoradia.Models
             return Cep;
         }
 
-        public void SetTamanhoEmMetros(double tamanhoEmMetros)
+        public virtual void SetTamanhoEmMetros(double tamanhoEmMetros)
         {
             TamanhoEmMetros = tamanhoEmMetros;
         }
@@ -49,7 +57,7 @@ namespace ProjetoMoradia.Models
             return TamanhoEmMetros;
         }
 
-        public void SetQuantidadeDeBanheiros(int quantidadeDeBanheiros)
+        public virtual void SetQuantidadeDeBanheiros(int quantidadeDeBanheiros)
         {
             QuantidadeDeBanheiros = quantidadeDeBanheiros;
         }

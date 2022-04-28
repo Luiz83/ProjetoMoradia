@@ -25,9 +25,9 @@ namespace ProjetoMoradia.Models
 
         public void SetCpf(string cpf)
         {
-            if (cpf.Count() == 11)
-                Cpf = cpf;
-            else return;
+            if (cpf.Length != 11)
+                return;
+            Cpf = cpf;
         }
 
         public string GetCpf()
@@ -37,7 +37,10 @@ namespace ProjetoMoradia.Models
 
         public void SetDataNascimento(string dataNascimento)
         {
-            DataNascimento = DateTime.Parse(dataNascimento);
+            var dataDeNascimento = DateTime.Parse(dataNascimento);
+            if (dataDeNascimento > DateTime.Now)
+                return;
+            DataNascimento = dataDeNascimento;
         }
 
         public DateTime GetDataDeNascimento()

@@ -36,17 +36,17 @@ public class MoradorTeste
     }
 
     [Fact]
-    public void TestarSeAValidacaoDoSetCpfEstaFuncionando()
+    public void TestarSeCpfNaoTemOnzeDigitos()
     {
         //Arrange
         var cpfTeste = "587965541287";
         var morador = new Morador("Giovanni",cpfTeste, "30/04/1998");
 
         //Act
-        var cpf = morador.GetCpf();
+        var cpfAtual = morador.GetCpf();
 
         //Assert
-        Assert.Equal(null,cpf);
+        Assert.Equal(null,cpfAtual);
 
     }
 
@@ -62,7 +62,20 @@ public class MoradorTeste
 
         //Assert
         Assert.Equal(dataNascimentoEsperada,dataNascimento.ToString("dd/MM/yyyy"));
+    }
 
+    [Fact]
+    public void DataDeNascimentoNaoPodeSerNoFuturo()
+    {
+        //Arrange
+        var dataNascimentoEsperada = System.DateTime.MinValue;
+        var morador = new Morador("Giovanni","11111111111", "11/07/2032");
+
+        //Act
+        var dataNascimento = morador.GetDataDeNascimento();
+
+        //Assert
+        Assert.Equal(dataNascimentoEsperada,dataNascimento);
     }
 }
 /*
